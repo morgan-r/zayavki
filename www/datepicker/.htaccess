@@ -1,0 +1,4 @@
+<Files ~ "\.(htm|html|css|js|php)$">
+   AddDefaultCharset windows-1251
+   DefaultLanguage ru-RU
+</Files>

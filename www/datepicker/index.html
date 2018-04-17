@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<title>Datepicker на jQuery от www.samborsky.com</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+
+	<link rel="stylesheet" href="smoothness/ui.datepicker.css" type="text/css" media="screen" />
+		
+	<!-- Подключаем jQuery -->
+	<script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+	
+	<!-- Подключаем jQuery UI (у нас там только datepicker) -->
+	<script type="text/javascript" src="jquery-ui-personalized-1.5.3.packed.js"></script>
+	
+	<!-- Подключаем русификацию datepicker`a -->
+	<script type="text/javascript" src="ui.datepicker-ru.js"></script>
+	
+</head>
+<body>
+
+<script type="text/javascript">
+/*<![CDATA[*/
+
+	var $d = jQuery.noConflict();
+	
+	$d(document).ready(function() {
+	
+		// Указываем дейтпикеру что выводить все нужно на русском
+		$d.datepicker.setDefaults($d.datepicker.regional['ru']);
+		
+		$d("#startDate,#endDate").datepicker({ 
+		    beforeShow: customRange, 
+		    showOn: "both", 
+		    buttonImage: "calendar.gif", 
+		    buttonImageOnly: true 
+		});
+	
+	});	
+
+	function customRange(input) { 
+	    return {minDate: (input.id == "endDate" ? $d("#startDate").datepicker("getDate") : null), 
+	        maxDate: (input.id == "startDate" ? $d("#endDate").datepicker("getDate") : null)}; 
+	} 	
+
+/* ]]> */
+</script>
+
+<strong>Пример к статье <a href="http://www.samborsky.com/javascript/jquery/233/">"Качественный datepicker это jQuery UI Datepicker"</a></strong>
+<br />
+<br />
+
+Первая дата: <input type="text" id="startDate" />
+&nbsp;&nbsp;&nbsp;
+Вторая дата: <input type="text" id="endDate" />
+
+
+</body>
+</html>
